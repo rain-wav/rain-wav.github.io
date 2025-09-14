@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  background: #000;
+}
+
+.card {
+  width: 70vw;
+  height: 80vh;
+  margin: 10vh 15vw;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: 2px;
+  padding: 18vh 10vw;
+  box-sizing: border-box;
+  position: relative;
+  animation: card 0.8s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.card .content {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 2px;
+}
+
+.card .content h1 {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 4px 0;
+  width: auto;
+  font-family: 'PT Serif', serif;
+  transform: scale(1, 0.9);
+}
+
+.card .content p {
+  margin: 4px 0;
+  padding: 4px 16px;
+  display: inline-block;
+}
+
+.card .content p,
+.card .content h4,
+.card .content h5,
+.card .content h6 {
+  font-weight: 100;
+}
+
+.card .content a {
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 -3px rgba(255, 255, 255, 0.3) inset;
+}
+
+.card .content .column {
+  display: inline-block;
+  width: 20vw;
+  margin-top: 16px;
+  font-size: 0.8em;
+}
+
+.card .content .column * {
+  margin: 3px 0;
+  display: inline-block;
+}
+
+.card .content .tabs {
+  position: absolute;
+  bottom: 2.5vh;
+  right: 2.5vw;
+  font-size: 0.6em;
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8em;
+}
+
+.card .content .tabs .redirlink {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  align-items: center;
+}
+
+.card .content .tabs .redirlink:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.card .content .tabs .redirlink:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.card .content .light {
+  color: white;
+}
+
+.card .content .medium {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card .content .dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.card .content * {
+  padding-left: 0 !important;
+}
+
+.card .content p *,
+.card .content h1 *,
+.card .content h2 *,
+.card .content h3 *,
+.card .content h4 *,
+.card .content h5 *,
+.card .content h6 *,
+.card .content div * {
+  animation: fadein 3s;
+}
+
+.card .content p.light,
+.card .content h1.light,
+.card .content h2.light,
+.card .content h3.light,
+.card .content h4.light,
+.card .content h5.light,
+.card .content h6.light,
+.card .content div.light {
+  animation: boxshadow-light 3s;
+}
+
+.card .content p.medium,
+.card .content h1.medium,
+.card .content h2.medium,
+.card .content h3.medium,
+.card .content h4.medium,
+.card .content h5.medium,
+.card .content h6.medium,
+.card .content div.medium {
+  animation: boxshadow-medium 3s;
+}
+
+.card .content p.dark,
+.card .content h1.dark,
+.card .content h2.dark,
+.card .content h3.dark,
+.card .content h4.dark,
+.card .content h5.dark,
+.card .content h6.dark,
+.card .content div.dark {
+  animation: boxshadow-dark 3s;
+}
+
+/* Stylus loop for nth-child (1..100) expanded manually would be huge.
+   Here’s a CSS-friendly alternative instead: */
+.card .content p:nth-child(n),
+.card .content h1:nth-child(n),
+.card .content h2:nth-child(n),
+.card .content h3:nth-child(n),
+.card .content h4:nth-child(n),
+.card .content h5:nth-child(n),
+.card .content h6:nth-child(n),
+.card .content div:nth-child(n) {
+  animation-duration: 3.5s;
+}
+
+/* Keyframes */
+@keyframes card {
+  0%, 50% {
+    box-shadow: -70vw 0 0 2vw rgba(255, 255, 255, 0.05) inset,
+                -140vw 0 0 2vw rgba(255, 255, 255, 0.05) inset;
+  }
+  100% {
+    box-shadow: 0 0 0 2vw rgba(255, 255, 255, 0.05) inset,
+                calc(-66vw + 1px) 0 0 2vw rgba(255, 255, 255, 0.05) inset;
+  }
+}
+
+@keyframes boxshadow-light {
+  0%, 40% {
+    color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 white inset;
+  }
+  79.9999999999999% {
+    box-shadow: 50vw 0 white inset;
+    color: rgba(0, 0, 0, 0);
+  }
+  80% {
+    box-shadow: -50vw 0 white inset;
+    color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    color: white;
+    box-shadow: 0 0 white inset;
+  }
+}
+
+@keyframes boxshadow-medium {
+  0%, 40% {
+    color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 rgba(255, 255, 255, 0.85) inset;
+  }
+  79.9999999999999% {
+    box-shadow: 50vw 0 rgba(255, 255, 255, 0.85) inset;
+    color: rgba(0, 0, 0, 0);
+  }
+  80% {
+    box-shadow: -50vw 0 rgba(255, 255, 255, 0.85) inset;
+    color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 rgba(255, 255, 255, 0.85) inset;
+  }
+}
+
+@keyframes boxshadow-dark {
+  0%, 40% {
+    color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 rgba(255, 255, 255, 0.5) inset;
+  }
+  79.9999999999999% {
+    box-shadow: 50vw 0 rgba(255, 255, 255, 0.5) inset;
+    color: rgba(0, 0, 0, 0);
+  }
+  80% {
+    box-shadow: -50vw 0 rgba(255, 255, 255, 0.5) inset;
+    color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 rgba(255, 255, 255, 0.5) inset;
+  }
+}
+
+@keyframes fadein {
+  0%, 80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
